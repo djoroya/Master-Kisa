@@ -1,0 +1,23 @@
+EJERCICIO 2 – kaggle.com: ejemplos industriales de la minería de datos -- compitamos...
+
+Recordarás de entre las transparencias del video el portal kaggle.com. Se ha convertido en uno de los referentes de las áreas de la minería de datos, big data, open data, data science... (me cuesta citar únicamente una única área: todas ellas fronterizas y separadas, "herederas" en parte entre sí).
+
+[Nota: antes de que sigamos con el ejercicio, que irá por otra línea, creo que merece mucho la pena que consultes los enlaces previos de la Wikipedia sobre "big y open data" y "data science": excelentes enlaces para contextualizar esta asignatura, la disciplina]
+
+El portal kaggle.com ofrece un servicio interesante y novedoso, también fuertemente criticado por los "analistas de datos" y empresas del sector, ya que se puede entender como un competidor de éstas. Básicamente y a grandes rasgos consiste en que empresas, instituciones, etc. que disponen problemas de análisis de datos (pensemos en lo más sencillo: un problema de clasificación supervisada), alojan en kaggle.com una "competición": ofrecen en la web un conjunto de datos de entrenamiento (ejemplos etiquetados con su clase real) para que competidores de todo el mundo entrenen sus modelos sobre ellos. La empresa-institución se guarda una porción de datos de test (que no ha ofrecido a los competidores para entrenar sus modelos): una vez que los competidores han entrenado sus modelos, esta partición de test es ofrecida de manera "ciega-blind" a los competidores (en un problema de clasificación supervisada: los datos de test sin etiquetar, sin su etiqueta real, ésta borrada), y éstos devuelven a kaggle.com la predicción que el modelo que han entrenado devuelve sobre estos ejemplos de test. Ya que kaggle.com dispone de la etiqueta real de cada ejemplo, puede "rankear" a los competidores y premiar a los vencedores.
+
+Hay competiciones sumamente interesantes. Estas competiciones no son "benchmark" de la UCI para testar de manera rápida, en un entorno controlado, "en laboratorio", distintos algoritmos. Son problemas de análisis de datos "de verdad". Las competiciones se visualizan en: https://www.kaggle.com/competitions , y con la casilla "active" o "all" puedes visualizar las competiciones actualmente en marcha y las ya acabadas (ojo, cuando se te muestren en pantalla las competiciones, se irán mostrando más según fijes el ratón en la parte baja de la pantalla y moviéndolo hacia abajo): clicka en la opción de ver todas las competiciones. Al menos, siempre se ofrece una descripción de los datos y el problema, las variables de entrada, dos particiones de los casos (una de entrenamiento, otra de test: en formato csv, habitualmente), directrices para evaluar los modelos, etc. Depende de la competición concreta. 
+
+Del listado de competiciones que alberga el portal (activas o finalizadas), escoge una de ellos y responde a lo siguiente:
+
+¿qué te ha motivado a escogerla, qué te ha llamado la atención?
+
+¿en qué consiste el problema de análisis de datos? Esto es, ¿qué "pregunta" se les hace a los datos? 
+¿qué tipo de datos alberga? Describe brevemente las variables predictoras (de algún ejemplo), la variable clase a predecir y sus valores (si es que existe), la cantidad de ejemplos de que se dispone en las particiones de train/test, tamaño del dataset (MegaBytes, GigaBytes), etc...
+
+esto es, "empápate" del dataset y describe los aspectos que serían críticos para un posterior análisis de datos
+Por otro lado, kaggle.com también recoge una incipiente sección de "Datasets" donados por distintas instituciones, empresas y grupos: no proponen una competición concreta, y dan pie a distintos tipos de análisis. Hay datasets de rabiosa actualidad, realmente interesantes ya actualizados. Responde:
+
+¿cuál de ellos te ha llamado la atención? ¿por qué?
+¿qué tipo de análisis propondrías hacer sobre ellos: esto es, qué "preguntas" te gustaría hacer a esos datos?
+esas "preguntas" que propones: ¿suponen aprender algún "modelo" desde los datos o simplemente se trataría de "visualizar" los datos de una forma atractiva?

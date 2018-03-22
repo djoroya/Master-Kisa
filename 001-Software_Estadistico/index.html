@@ -1,0 +1,62 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.5">
+	<title>Punto fijo</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="puntofijoej1" style="display: inline-block;"></div></div>
+	<div class="scianimator" style="width: 600px; text-align: left"><pre><code class="r">## Iteración de punto fijo Aproximación inicial inicial: x0 = 0.8,
+##   Iteración xn_ = g(x_{n-1})
+library(animation)
+ani.options(interval = 0.5, nmax = 14)
+g = function(x) (x + 1) * sin(x^2)
+pxa = rep(NA, times = ani.options("nmax") + 1)
+pxb = rep(NA, times = ani.options("nmax") + 1)
+x0 = 0.8
+a = -3
+b = 2
+xa = x0
+xb = g(x0)
+pxa[1] = x0
+pxb[1] = 0
+pxa[2] = xa
+pxb[2] = xb
+k = 4
+while (k <= ani.options("nmax")) {
+    pxa[k - 1] = xa
+    pxa[k:(k + 2)] = xb
+    pxb[(k - 1):(k + 1)] = xb
+    pxb[k + 2] = g(xb)
+    xa = xb
+    xb = g(xa)
+    k = k + 2
+}
+for (j in 1:ani.options("nmax")) {
+    plot(g, a, b, col = "blue")
+    curve((x), a, b, add = T)
+    abline(h = 0, v = 0, lty = 2)
+    arrows(pxa[1:j], pxb[1:j], pxa[2:(j + 1)], pxb[2:(j + 
+        1)], col = "red", length = 0.15, angle = 20)
+    ani.pause()
+}
+## R version 3.3.2 (2016-10-31)
+## Platform: x86_64-apple-darwin11.4.2 (64-bit)
+## Other packages: animation 2.5</code></pre></div>
+	<script src="js/puntofijoej1.js"></script>
+<!-- highlight R code -->
+
+</body>
+</html>

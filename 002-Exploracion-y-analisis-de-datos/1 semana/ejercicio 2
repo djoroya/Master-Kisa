@@ -1,0 +1,23 @@
+Ejercicio de evaluación 1
+EJERCICIO 1 – Problemas “benchmark” de análisis de datos - Repositorio UCI
+
+Para todos los investigadores que trabajamos en el campo de la minería de datos, a la hora de testar los nuevos algoritmos y técnicas de clasificación que se proponen, es ampliamente conocido el "UCI Machine Learning Repository": una conocida colección de problemas de clasificación de la Universidad de California Irvine (UCI).
+
+Hoy día, en el mundo de la investigación, un investigador no puede decir y publicar que “el algoritmo que él propone es mejor que otros algoritmos cuando lo ha testado en una base de datos que le ha dejado un colega y que la tiene en su disco duro...” No son las cosas así en el mundo actual de la investigación. Para testar- evaluar las nuevas técnicas que se proponen, tenemos las llamadas “benchmark” (o “banco de pruebas”, en inglés), colecciones de problemas de clasificación (bases de datos públicas) donde todos los investigadores nos ponemos de acuerdo para testar-evaluar las nuevas propuestas.
+
+Encontrarás muchas bases de datos, con problemas de clasificación de la vida real, de áreas muy diversas, algunas de ellas muy curiosas, algunas muy útiles, otras simplemente un “toy example”, también problemas creados artificialmente, etc. La mayoría, problemas reales, donados por instituciones, empresas, investigadores.
+
+De nuestro especial interés son aquellas que: “Default task -> Classification” (esto es, bases de datos que contienen problemas de clasificación supervisada). Una vez que clickamos en una base de datos, tenemos: “Data folder” (con los datos), “Data Set Description” (definición y explicación del problema). Especialmente, puedes trabajar en este último “Data Set Description”, para comprender el problema.
+
+Invierte tu tiempo y curiosidad "paseando” por el conjunto de problemas, clickando aquí y allí en las bases de datos que han llamado tu atención; merece la pena, algo seguro que despertará tu interés y curiosidad.
+
+Después de esto, selecciona una base de datos y elabora-documenta las siguientes preguntas:
+
+¿cuál es el problema de clasificacion supervisada que reflejan? ¿cuál es la variable clase (“problem class”, “class to be predicted”), y ésta que distintos valores toma? ¿Está el problema de clasificación “desbalanceado”: son la mayoría de casos de una clase y unos pocos del resto?
+
+¿cuántas variables predictoras hay en total? Trata de entender, y luego de explicar en tu respuesta, unas 5-6 variables predictoras.
+
+¿cuántos casos contiene el "dataset"? ¿te parecen suficientes casos para realizar predicciones fiables con un modelo que se aprenda a partir de ellos?
+comenta cualquier otro punto o ángulo del problema de clasificación que haya llamado tu atención: ¿por qué han llamado tu atención, por qué te “gustan”? ¿por qué has escogido éstas y no otras?... abierto a tus comentarios.
+
+Última modificación: lunes, 23 de octubre de 2017, 11:37

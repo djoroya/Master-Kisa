@@ -1,0 +1,99 @@
+---
+title: "Ejercicio - Redes Bayesianas"
+output:
+  pdf_document: default
+  html_notebook: default
+  
+---
+\textbf{Autor:} Deyviss Jesús Oroya Villalta
+```{r message=FALSE}
+library(bnlearn)
+library(gRain)
+library(Rgraphviz)
+library(ggplot2)
+library(foreign)
+rm(list=ls())
+graphics.off()
+```
+
+Los resultados obtenidos por una serie de estudiantes se han modelado utilizando
+para ello un modelo probabil´ıstico simplificado. Este modelo consta de tres
+varaibles aleatorias binarias, S, que determina si el estudiante ha estudiado o
+no; C, que determina si ha comprendido la asignatura o no y A, que determina
+si finalmente ha superado o no la asignatura.
+Como hip´otesis al plantear el modelo hemos asumido que, sabido si el alumno
+ha comprendido o no la asignatura (variable C), aprobar (A) es independiente
+de haber estudiado (S). Del conjunto de resultados obtenidos en a˜nos anteriores
+hemos estimado las siguientes probabilidades:
+\begin{itemize}
+\item P(S = 1) = 0.75           
+\item P(C = 1|S = 1) = 0.80
+\item P(C = 1|S = 0) = 0.45
+\item P(A = 1|C = 1) = 0.95
+\item P(A = 1|C = 0) = 0.25
+\end{itemize}
+Ademas se puede deducir la siguiente probabilidad:
+\begin{itemize}
+\item P(C = 1) = 0.7125
+\end{itemize}
+Si suponemos I(A,S|C) entonces podemos factorizar la distribución de porbabilidad P(A,S,C) como:
+$$ 
+P(A,S,C) = P(C)P(A|C)P(S|C)
+$$
+Contruimos el modelo
+
+```{r fig.height=2.5, fig.width=3, fig.align='center'}
+
+# P(C)
+c1 = 0.7125 
+c0 = 0.2875
+# P(A|C)
+a0c0 = 0.75
+a1c0 = 0.25
+a0c1 = 0.05
+a1c1 = 0.95
+# P(S)
+s1 = 0.75
+s0 = 0.25
+
+# P(S|C)
+s0c0 = (s0/c0)*0.55
+s1c0 = (s1/c0)*0.20
+s0c1 = (s0/c1)*0.45
+s1c1 = (s1/c1)*0.80
+
+## construimos modelo
+yn<-c("NO","SI")
+c   <- cptable(~C,   values=c(c0,c1),levels=yn)
+a.c <- cptable(~A|C, values=c(a0c0,a1c0,a0c1,a1c1),levels=yn)
+s.c <- cptable(~S|C, values=c(s0c0,s1c0,s0c1,s1c1),levels=yn)
+
+plist<-compileCPT(list(c,a.c,s.c))
+net.study<-grain(plist)
+plot(net.study)
+```
+
+Implementamos el pseudocódigo del enunciado
+
+```{r}
+  get_conditional_marginal <- function(net,node,evidence_nodes,evidence,numSamples){
+  index <-0
+  len_evidences <- length(evidence)
+  df <- simulate(net,nsim=1)
+  while(index < numSamples){
+    samp<-simulate(net,nsim=1)
+    if (sum(samp[evidence_nodes]==evidence) == len_evidences){
+      index = index + 1
+      df = rbind(df,samp)
+    }
+  }
+  return(summary(df[-1,node])/numSamples)  
+  }
+```
+Entonces la probabilidad de aprobar, sabiendo que se ha comprendido la asignatura se puede calcular como
+```{r}
+result <- get_conditional_marginal(net.study,"A",c("C"),c("SI"),50)
+result
+
+```
+

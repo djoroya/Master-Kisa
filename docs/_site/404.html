@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title> by </title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="/assets/js/wiki-features.js"></script>
+
+    
+
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="/"><img src="">
+          <h1></h1>
+        </a>
+        <p></p>
+
+        
+
+        
+
+      
+        
+      </header>
+      <section>
+      <div id="tools-buttons" style="width: 100%; text-align: right">
+        
+        
+          <span class="tools-element"><a target="_blank" href="/edit//404.md">Edit</a></span>
+          
+          <span class="tools-element"><a target="_blank" href="/commits//404.md">History</a></span>
+          <span class="tools-element"><a target="_blank" href="/blob//404.md">Source</a></span>
+        
+        
+        
+          <form method="GET" action="/search">
+            
+            <input type="text" name="q" placeholder="Text to search"><input type="submit" value="Search">
+          </form>
+        
+      </div>
+        
+      <div id="toc"></div>
+ 
+      <div id="content">
+        <!-- redirect to page creator if not exists -->
+<script type="text/javascript">
+    var filename = window.location.pathname.split('/').pop();
+    if (!filename.endsWith(".md"))
+        filename+=".md";
+
+    var url = '/new/?filename=wiki/'+filename;
+    window.location=url;
+</script>
+
+
+      </div>
+        
+      
+
+      </section>
+      <footer>
+        
+
+        
+        <p><small>Hosted on GitHub Pages &mdash; Powered by <a href="https://github.com/Drassil/git-wiki">Git-Wiki</a> </p>
+        
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#toc').toc({ title: '<i>Contents</i>'});
+        });
+    </script>
+  </body>
+</html>
